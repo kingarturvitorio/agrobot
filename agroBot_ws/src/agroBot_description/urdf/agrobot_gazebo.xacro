@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<robot name="Robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+
+<!-- juntas passivas -->
+
+<transmission name="joint_link_dir_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_link_dir">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_link_dir_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joint_link_esq_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_link_esq">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_link_esq_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<!-- juntas passivas -->
+
+<transmission name="joint_roda_1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_roda_1">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_roda_1_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joint_roda_2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_roda_2">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_roda_2_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joint_roda_3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_roda_3">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_roda_3_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joint_roda_4_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_roda_4">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_roda_4_actr">
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+
+ <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>/home/ros2/agroBot_ws/src/agroBot_description/config/jtc.yaml</parameters>
+    </plugin>
+  </gazebo>
+  
+</robot>

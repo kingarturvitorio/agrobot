@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="agrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find agroBot_description)/urdf/agrobot_gazebo.xacro" />
+<xacro:include filename="$(find agroBot_description)/urdf/agrobot_ros2_control.xacro" />
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.596325046490665 0.4940635272493 1.09834962149239"
+        rpy="0 0 0" />
+      <mass
+        value="7.0" />
+      <inertia
+        ixx="0.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0"
+        iyz="0.0"
+        izz="0.0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="base_link_dir">
+    <inertial>
+      <origin
+        xyz="0.13246 0.24387 -0.0064761"
+        rpy="0 0 0" />
+      <mass
+        value="32.767" />
+      <inertia
+        ixx="2.0167"
+        ixy="0.0010486"
+        ixz="1.2982E-05"
+        iyy="1.941"
+        iyz="-2.6641E-05"
+        izz="0.15623" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/base_link_dir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/base_link_dir.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_link_dir"
+    type="revolute">
+    <origin
+      xyz="1.0448 -1.0983 0.49406"
+      rpy="-1.5715 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="base_link_dir" />
+    <limit
+      lower="0.0"
+      upper="0.0"
+      effort="0"
+      velocity="0" />
+    <axis
+      xyz="1 0 0" />
+    <dynamics damping="0.1" friction="0.1" stiffness="1.0"/>
+  </joint>
+  <link
+    name="link_roda_1">
+    <inertial>
+      <origin
+        xyz="-7.8106E-09 9.2008E-10 0.035277"
+        rpy="0 0 0" />
+      <mass
+        value="3.3303" />
+      <inertia
+        ixx="0.01802"
+        ixy="6.4306E-10"
+        ixz="-1.9593E-09"
+        iyy="0.01802"
+        iyz="-1.5336E-10"
+        izz="0.03089" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_roda_1"
+    type="continuous">
+    <origin
+      xyz="0.089318 0.46 -0.6865"
+      rpy="1.5708 -0.35506 1.5708" />
+    <parent
+      link="base_link_dir" />
+    <child
+      link="link_roda_1" />
+    <axis
+      xyz="0 0 -1" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="link_roda_2">
+    <inertial>
+      <origin
+        xyz="-1.2234E-08 9.7963E-10 0.035277"
+        rpy="0 0 0" />
+      <mass
+        value="3.3303" />
+      <inertia
+        ixx="0.01802"
+        ixy="7.7428E-10"
+        ixz="-1.9879E-09"
+        iyy="0.01802"
+        iyz="-2.3973E-10"
+        izz="0.03089" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_roda_2"
+    type="continuous">
+    <origin
+      xyz="0.089252 0.46 0.6865"
+      rpy="-1.5708 -0.31051 -1.5708" />
+    <parent
+      link="base_link_dir" />
+    <child
+      link="link_roda_2" />
+    <axis
+      xyz="0 0 -1" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="base_link_esq">
+    <inertial>
+      <origin
+        xyz="-0.015368 0.24387 -0.0064761"
+        rpy="0 0 0" />
+      <mass
+        value="32.767" />
+      <inertia
+        ixx="2.0167"
+        ixy="0.0010486"
+        ixz="1.2982E-05"
+        iyy="1.941"
+        iyz="-2.6641E-05"
+        izz="0.15623" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/base_link_esq.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/base_link_esq.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_link_esq"
+    type="revolute">
+    <origin
+      xyz="0 -1.0983 0.49406"
+      rpy="-1.5701 0 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="base_link_esq" />
+    <limit
+      lower="0.0"
+      upper="0.0"
+      effort="0"
+      velocity="0" />
+    <axis
+      xyz="1 0 0" />
+    <dynamics damping="0.1" friction="0.1" stiffness="1.0"/>
+  </joint>
+  <link
+    name="link_roda_3">
+    <inertial>
+      <origin
+        xyz="-1.4308E-08 -4.6127E-10 -0.020064"
+        rpy="0 0 0" />
+      <mass
+        value="3.3303" />
+      <inertia
+        ixx="0.01802"
+        ixy="8.3031E-10"
+        ixz="-2.0224E-09"
+        iyy="0.01802"
+        iyz="-1.6521E-10"
+        izz="0.03089" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_roda_3"
+    type="continuous">
+    <origin
+      xyz="0 0.46 0.6865"
+      rpy="-1.5708 -0.26545 -1.5708" />
+    <parent
+      link="base_link_esq" />
+    <child
+      link="link_roda_3" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="link_roda_4">
+    <inertial>
+      <origin
+        xyz="-1.3546E-08 -2.7978E-09 -0.019743"
+        rpy="0 0 0" />
+      <mass
+        value="3.3303" />
+      <inertia
+        ixx="0.01802"
+        ixy="8.7865E-10"
+        ixz="-2.0339E-09"
+        iyy="0.01802"
+        iyz="-1.5099E-10"
+        izz="0.03089" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://agroBot_description/meshes/link_roda_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_roda_4"
+    type="continuous">
+    <origin
+      xyz="0 0.46 -0.6865"
+      rpy="-1.5708 -0.21139 -1.5708" />
+    <parent
+      link="base_link_esq" />
+    <child
+      link="link_roda_4" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <!-- ////////////////////////////////////  Camera LINK //////////////////////////////////////////////// -->
+
+  <link name="camera_link">
+    <inertial>
+      <mass value="0.75" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.00" ixy="0.0" ixz="0.0" iyz="0.0" />
+      <origin />
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <box size=".05 .05 .05"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size=".05 .05 .05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.596325046490665 -1.0 0.5" rpy="0.0 1.57 1.57" />
+    <parent link="base_link" />
+    <child link="camera_link" />
+  </joint>
+
+  <!-- camera -->
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="roboagricola_camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <visualize>true</visualize>
+        <updateRate>0.0</updateRate>
+        <cameraName>VRB/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+</robot>
